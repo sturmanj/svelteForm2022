@@ -1,0 +1,5 @@
+/node_modules/
+/public/build/
+test.rest
+
+.DS_store
