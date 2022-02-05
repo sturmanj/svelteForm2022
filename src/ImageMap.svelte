@@ -1,0 +1,78 @@
+<script>
+    //Required imports
+    import { onMount } from 'svelte'
+    import { Canvas, Layer } from "svelte-canvas"
+
+    //Component Parameters
+    export let width = 600
+    export let height = 400
+    export let image = ''
+    export let value = []
+    export let max = 1
+
+    //Declare variables
+    let canvasComponent
+    let canvas
+    let left = max
+
+    //Set up canvas and click event
+    onMount(() => {
+        canvas = canvasComponent.getCanvas()
+        canvas.addEventListener("mousedown", function(e) {
+            handleClick(canvas, e)
+        })
+    })
+
+    //Load and set image
+    let img = new Image()
+    let w, h
+    img.onload = function() {
+        w = width
+        h = height
+    }
+    img.src = image
+
+    //Click event
+    function handleClick(canvas, event) {
+        if (value.length < max) {
+            let rect = canvas.getBoundingClientRect()
+            let x = event.clientX - rect.left
+            let y = event.clientY - rect.top
+            value.push([Math.round(x), Math.round(y)])
+        }
+        canvasComponent.redraw()
+    }
+
+    //Undo function
+    function undo() {
+        if (left >= 0 && value.length > 0) {
+            value.pop()
+            canvasComponent.redraw()
+        }
+    }
+
+    //Render canvas with svelte-canvas
+    $: render = ({ context }) => {
+        context.drawImage(img, 0, 0, w, h)
+        while(value.length > max) {
+            value.pop()
+        }
+        for (let i = 0; i < value.length; i++) {
+            let x = value[i][0]
+            let y = value[i][1]
+            context.fillStyle = 'red'
+            context.beginPath()
+            context.arc(x, y, 5, 0, Math.PI * 2)
+            context.fill()
+        }
+        left = max - value.length
+    }
+</script>
+
+<main>
+    <Canvas bind:this={canvasComponent} width={width} height={height}>
+        <Layer {render} />
+    </Canvas>
+    <button style="display: inline-block;" on:click={undo}>Undo</button>
+    <p style="display: inline-block;" >Possitions left to plot: {left} </p>
+</main>

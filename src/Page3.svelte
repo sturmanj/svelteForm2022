@@ -1,9 +1,9 @@
 <script>
     import { createEventDispatcher } from 'svelte';
     import { data } from './stores'
- 
+
     const dispatch = createEventDispatcher();
- 
+
     function prev() {
         dispatch('message', {
             text: 'prev'
@@ -15,7 +15,7 @@
         });
     }
 </script>
- 
+
 <h1>Postgame</h1>
 <p>Climb Rung:</p>
 <input bind:value={$data.climbMethod} />
@@ -27,7 +27,7 @@
 <input bind:value={$data.defenceMethod} />
 <p>Other Notes:</p>
 <input bind:value={$data.notes} />
-<p> </p>
+<br>
 <button on:click={prev}> prev </button>
 <button on:click={sbmt}> submit </button>
 

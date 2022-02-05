@@ -1,24 +1,24 @@
 import { writable } from "svelte/store";
- 
+
 export const data = writable({
     //page 0 (prematch)
-    scout: null,
-    eventId: null,
-    matchNum: null,
-    teamNum: null,
-    autoStartPos: null,
+    scout: '',
+    eventId: '',
+    matchNum: 0,
+    teamNum: 0,
+    autoStartPos: [],
     //page 1 (auto)
-    autoUpperScore: null,
-    autoLowerScore: null,
-    moved: null,
-    autoShootPos: null,
+    autoUpperScore: 0,
+    autoLowerScore: 0,
+    moved: false,
+    autoShootPos: [],
     //page 2 (teleop)
-    teleUpperScore: null,
-    teleLowerScore: null,
-    teleShootPos: null,
+    teleUpperScore: 0,
+    teleLowerScore: 0,
+    teleShootPos: [],
     //page 3 (postgame)
     climbMethod: null,
-    defended: null,
+    defended: false,
     cargoMethod: null,
     defenceMethod: null,
     notes: null

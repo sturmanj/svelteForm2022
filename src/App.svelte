@@ -15,7 +15,7 @@
 	$data.eventId = autoVal.eventId
 	$data.matchNum = autoVal.matchNum
 	$data.teamNum = autoVal.teamNum 
-
+	
 	const pages = [Page0, Page1, Page2, Page3];
    
 	let page = 0;
