@@ -20,7 +20,7 @@ export const data = writable({
     climbMethod: [],
     defended: false,
     cargoMethod: [],
-    defenceMethod: [],
+    defenseMethod: [],
     notes: ''
 })
 

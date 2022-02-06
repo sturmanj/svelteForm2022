@@ -4,12 +4,14 @@
 
     const dispatch = createEventDispatcher();
     const rungs = [
-		'Low',
-		'Mid',
-		'High',
-		'Traversal'
+        'not attemped',
+		'fell',
+        'low',
+		'mid',
+		'high',
+		'traversal'
 	];
-    const defenceMethods = [
+    const defenseMethods = [
         'did not defend',
         "blocked opposing alliance's launch pad",
 		"stored opposing alliance's balls in indexer",
@@ -52,10 +54,10 @@
         {/if}
     </label>
 
-    <h2>Defence Method:</h2>
-    {#each defenceMethods as method}
+    <h2>Defense Method:</h2>
+    {#each defenseMethods as method}
 	<label>
-		<input type="checkbox" bind:group={$data.defenceMethod} value={method}>
+		<input type="checkbox" bind:group={$data.defenseMethod} value={method}>
 		{method}
 	</label>
     {/each}
