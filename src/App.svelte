@@ -5,7 +5,7 @@
 	import Page2 from './Page2.svelte';
 	import Page3 from './Page3.svelte';
 	import { data } from './stores'
-   
+
 	var autoVal = location.search
 		.slice(1)
 		.split('&')
@@ -14,38 +14,41 @@
 	$data.scout = autoVal.scout
 	$data.eventId = autoVal.eventId
 	$data.matchNum = autoVal.matchNum
-	$data.teamNum = autoVal.teamNum 
-	
+	$data.teamNum = autoVal.teamNum
+
 	const pages = [Page0, Page1, Page2, Page3];
-   
+
 	let page = 0;
-   
+
 	  function handleMessage(event) {
 		if (event.detail.text == 'next') {
-		  page += 1;
+			page += 1;
+			window.scrollTo(0,0)
 		}
 		if (event.detail.text == 'prev') {
-		  page -= 1;
+			page -= 1;
+			window.scrollTo(0,0)
 		}
 		if (event.detail.text == 'sbmt') {
-			console.log({$data, scout: $data.scout,teamNumber: $data.teamNum, eventId: $data.eventId})
+			console.log({data: $data, scout: $data.scout,teamNumber: $data.teamNum, eventId: $data.eventId})
+			/*
 			fetch("http://localhost:5000/submit", {
-	  		method: "POST",
-  			headers: {
+	  			method: "POST",
+  				headers: {
 					'Content-Type': "application/json",
 				},
 				body: JSON.stringify({data: $data, scout: $data.scout,teamNumber: $data.teamNum, eventId: $data.eventId})
 			})
 			.then(response => {
-			console.log(response);
+				console.log(response);
 			})
 			.catch(err => {
-			console.error(err);
+				console.error(err);
 			});
+			*/
 		}
 	  }
   </script>
-   
+
   <svelte:component this={pages[page]} on:message={handleMessage}/>
-  
-  
+

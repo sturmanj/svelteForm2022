@@ -17,10 +17,10 @@ export const data = writable({
     teleLowerScore: 0,
     teleShootPos: [],
     //page 3 (postgame)
-    climbMethod: null,
+    climbMethod: [],
     defended: false,
-    cargoMethod: null,
-    defenceMethod: null,
-    notes: null
+    cargoMethod: [],
+    defenceMethod: [],
+    notes: ''
 })
 

@@ -23,13 +23,19 @@
     }
 </script>
 
-<h1>Teleop</h1>
-<p>Upper Score:</p>
-<input type=number bind:value={$data.teleUpperScore} on:input={updateMax} min=0 />
-<p>Lower Score:</p>
-<input type=number bind:value={$data.teleLowerScore} on:input={updateMax} min=0 />
-<p>Teleop Shoot Position:</p>
-<ImageMap width={600} height={338} bind:max={totalShots} bind:value={$data.teleShootPos} image={'./field.png'}></ImageMap>
-<br>
-<button on:click={prev}> prev </button>
-<button on:click={next}> next </button>
+<main>
+    <h1>Teleop</h1>
+
+    <h2>Upper Score:</h2>
+    <input type=number bind:value={$data.teleUpperScore} on:input={updateMax} min=0 />
+
+    <h2>Lower Score:</h2>
+    <input type=number bind:value={$data.teleLowerScore} on:input={updateMax} min=0 />
+
+    <h2>Teleop Shoot Position:</h2>
+    <ImageMap width={600} height={338} bind:max={totalShots} bind:value={$data.teleShootPos} image={'./field.png'}></ImageMap>
+
+    <br>
+    <button on:click={prev}> prev </button>
+    <button on:click={next}> next </button>
+</main>
