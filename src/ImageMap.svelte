@@ -74,5 +74,5 @@
         <Layer {render} />
     </Canvas>
     <button style="display: inline-block;" on:click={undo}>Undo</button>
-    <p style="display: inline-block;" >Possitions left to plot: {left} </p>
+    <p style="display: inline-block;" >Positions left to plot: {left} </p>
 </main>

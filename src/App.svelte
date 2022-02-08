@@ -37,7 +37,6 @@
 		}
 		if (event.detail.text == 'sbmt') {
 			console.log({data: $data, scout: $data.scout,teamNumber: $data.teamNum, eventId: $data.eventId})
-			/*
 			fetch("http://localhost:5000/submit", {
 	  			method: "POST",
   				headers: {
@@ -51,14 +50,13 @@
 			.catch(err => {
 				console.error(err);
 			});
-			*/
 		}
 	}
 </script>
 
 <main>
 	{#key page}
-		<div style="display: inline-block; position: absolute;" in:fly={{ y: start, duration: 1000, delay:100 }}
+		<div style="position: absolute;" in:fly={{ y: start, duration: 1000, delay:100 }}
 		out:fly={{ y: fin, duration: 1000 }}>
   			<svelte:component this={pages[page]} on:message={handleMessage}/>
 		</div>
