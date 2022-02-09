@@ -33,7 +33,7 @@
     }
 </script>
 
-<main>
+<main style="text-align: center;">
     <h1>Postgame</h1>
 
     <h2>Climb Rung:</h2>

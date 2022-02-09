@@ -19,7 +19,6 @@ export const data = writable({
     //page 3 (postgame)
     climbMethod: [],
     defended: false,
-    cargoMethod: [],
     defenseMethod: [],
     notes: ''
 })

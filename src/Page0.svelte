@@ -12,10 +12,10 @@
     }
 </script>
 
-<main>
+<main style="text-align: center;">
     <h1>Prematch</h1>
     <p>Auto Start Position:</p>
-    <ImageMap width={600} height={338} max={1} bind:value={$data.autoStartPos} image={'./field.png'}></ImageMap>
+    <ImageMap width={600} height={266} max={1} bind:value={$data.autoStartPos} image={'./field.png'}></ImageMap>
     <button on:click={next}> next </button>
 </main>
 

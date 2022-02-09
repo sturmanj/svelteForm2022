@@ -23,7 +23,7 @@
     }
 </script>
 
-<main>
+<main style="text-align: center;">
     <h1>Teleop</h1>
 
     <h2>Upper Score:</h2>
@@ -33,7 +33,7 @@
     <input type=number bind:value={$data.teleLowerScore} on:input={updateMax} min=0 />
 
     <h2>Teleop Shoot Position:</h2>
-    <ImageMap width={600} height={338} bind:max={totalShots} bind:value={$data.teleShootPos} image={'./field.png'}></ImageMap>
+    <ImageMap width={600} height={266} bind:max={totalShots} bind:value={$data.teleShootPos} image={'./field.png'}></ImageMap>
 
     <br>
     <button on:click={prev}> prev </button>

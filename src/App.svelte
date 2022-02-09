@@ -11,16 +11,12 @@
 	var fin = 0;
 	const pages = [Page0, Page1, Page2, Page3];
 	let page = 0;
+	const params = new URLSearchParams(location.search);
 
-	var autoVal = location.search
-		.slice(1)
-		.split('&')
-		.map(p => p.split('='))
-		.reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
-	$data.scout = autoVal.scout
-	$data.eventId = autoVal.eventId
-	$data.matchNum = autoVal.matchNum
-	$data.teamNum = autoVal.teamNum
+	$data.scout = params.get('scout')
+	$data.eventId = params.get('eventId')
+	$data.matchNum = params.get('matchNum')
+	$data.teamNum = params.get('teamNum')
 
 	function handleMessage(event) {
 		if (event.detail.text == 'next') {
@@ -37,7 +33,7 @@
 		}
 		if (event.detail.text == 'sbmt') {
 			console.log({data: $data, scout: $data.scout,teamNumber: $data.teamNum, eventId: $data.eventId})
-			fetch("http://localhost:5000/submit", {
+			fetch("http://10.105.153.149:5000/submit", {
 	  			method: "POST",
   				headers: {
 					'Content-Type': "application/json",
@@ -56,9 +52,18 @@
 
 <main>
 	{#key page}
-		<div style="position: absolute;" in:fly={{ y: start, duration: 1000, delay:100 }}
+		<div in:fly={{ y: start, duration: 1000, delay:100 }}
 		out:fly={{ y: fin, duration: 1000 }}>
   			<svelte:component this={pages[page]} on:message={handleMessage}/>
 		</div>
 	{/key}
 </main>
+
+<style>
+	div {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+</style>

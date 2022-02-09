@@ -22,7 +22,7 @@
     }
 </script>
 
-<main>
+<main style="text-align: center;">
     <h1>Auto</h1>
 
     <h2>Upper Score:</h2>
@@ -42,7 +42,7 @@
     </label>
 
     <h2>Auto Shoot Position:</h2>
-    <ImageMap width={600} height={338} bind:max={totalShots} bind:value={$data.autoShootPos} image={'./field.png'}></ImageMap>
+    <ImageMap width={600} height={266} bind:max={totalShots} bind:value={$data.autoShootPos} image={'./field.png'}></ImageMap>
 
     <br>
     <button on:click={prev}> prev </button>
