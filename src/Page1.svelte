@@ -16,9 +16,22 @@
             text: 'prev'
         });
     }
-
     function updateMax() {
         totalShots = $data.autoUpperScore + $data.autoLowerScore
+    }
+    function incUpp() {
+        $data.autoUpperScore += 1
+    }
+    function decUpp() {
+        if ($data.autoUpperScore == 0) return
+        $data.autoUpperScore -= 1
+    }
+    function incLow() {
+        $data.autoLowerScore += 1
+    }
+    function decLow() {
+        if ($data.autoLowerScore == 0) return
+        $data.autoLowerScore -= 1
     }
 </script>
 
@@ -26,10 +39,18 @@
     <h1>Auto</h1>
 
     <h2>Upper Score:</h2>
+    <div style="display: inline;">
+    <button on:click={decUpp}>-1</button>
     <input type=number bind:value={$data.autoUpperScore} on:input={updateMax} min=0 />
+    <button on:click={incUpp}>+1</button>
+    </div>
 
     <h2>Lower Score:</h2>
+    <div style="display: inline;">
+    <button on:click={decLow}>-1</button>
     <input type=number bind:value={$data.autoLowerScore} on:input={updateMax} min=0 />
+    <button on:click={incLow}>+1</button>
+    </div>
 
     <h2>Moved?</h2>
     <label>

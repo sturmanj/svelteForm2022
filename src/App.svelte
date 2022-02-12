@@ -10,7 +10,7 @@
 	var start = 0;
 	var fin = 0;
 	const pages = [Page0, Page1, Page2, Page3];
-	let page = 0;
+	let page = 1; //change back to 0
 	const params = new URLSearchParams(location.search);
 
 	$data.scout = params.get('scout')
