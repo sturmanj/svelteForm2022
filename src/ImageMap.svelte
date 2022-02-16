@@ -84,4 +84,7 @@
 		margin: auto;
         width: 50%;
 	}
+    button {
+        width: 50px;
+    }
 </style>

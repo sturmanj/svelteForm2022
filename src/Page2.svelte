@@ -42,21 +42,30 @@
 
     <h2>Upper Score:</h2>
     <div style="display: inline;">
-    <button on:click={decUpp}>-1</button>
-    <input type=number bind:value={$data.teleUpperScore} on:input={updateMax} min=0 />
-    <button on:click={incUpp}>+1</button>
+    <button class="grow-button" on:click={decUpp}>-1</button>
+    <input class="input-box" type=number bind:value={$data.teleUpperScore} on:input={updateMax} min=0 />
+    <button class="grow-button" on:click={incUpp}>+1</button>
     </div>
 
     <h2>Lower Score:</h2>
     <div style="display: inline;">
-        <button on:click={decLow}>-1</button>
-        <input type=number bind:value={$data.teleLowerScore} on:input={updateMax} min=0 />
-        <button on:click={incLow}>+1</button>
+        <button class="grow-button" on:click={decLow}>-1</button>
+        <input class="input-box" type=number bind:value={$data.teleLowerScore} on:input={updateMax} min=0 />
+        <button class="grow-button" on:click={incLow}>+1</button>
         </div>
     <h2>Teleop Shoot Position:</h2>
-    <ImageMap width={600} height={266} bind:max={totalShots} bind:value={$data.teleShootPos} image={'./field.png'}></ImageMap>
+    <ImageMap width={.8 * window.innerWidth} height={window.innerWidth * 0.35} bind:max={totalShots} bind:value={$data.teleShootPos} image={'./field.png'}></ImageMap>
 
     <br>
     <button on:click={prev}> prev </button>
     <button on:click={next}> next </button>
 </main>
+<style>
+    .grow-button {
+        font-size: 3em;
+    }
+    .input-box {
+        width: 10%;
+        margin: 1em 1em 1em 1em;
+    }
+</style>

@@ -24,7 +24,6 @@
     }
     function decUpp() {
         if ($data.autoUpperScore == 0) return
-        $data.autoUpperScore -= 1
     }
     function incLow() {
         $data.autoLowerScore += 1
@@ -40,16 +39,16 @@
 
     <h2>Upper Score:</h2>
     <div style="display: inline;">
-    <button on:click={decUpp}>-1</button>
-    <input type=number bind:value={$data.autoUpperScore} on:input={updateMax} min=0 />
-    <button on:click={incUpp}>+1</button>
+    <button class="grow-button" on:click={decUpp}>-1</button>
+    <input class="input-box" type=number bind:value={$data.autoUpperScore} on:input={updateMax} min=0 />
+    <button class="grow-button" on:click={incUpp}>+1</button>
     </div>
 
     <h2>Lower Score:</h2>
     <div style="display: inline;">
-    <button on:click={decLow}>-1</button>
-    <input type=number bind:value={$data.autoLowerScore} on:input={updateMax} min=0 />
-    <button on:click={incLow}>+1</button>
+    <button class="grow-button" on:click={decLow}>-1</button>
+    <input class="input-box" type=number bind:value={$data.autoLowerScore} on:input={updateMax} min=0 />
+    <button class="grow-button" on:click={incLow}>+1</button>
     </div>
 
     <h2>Moved?</h2>
@@ -63,9 +62,18 @@
     </label>
 
     <h2>Auto Shoot Position:</h2>
-    <ImageMap width={600} height={266} bind:max={totalShots} bind:value={$data.autoShootPos} image={'./field.png'}></ImageMap>
+    <ImageMap width={.8 * window.innerWidth} height={window.innerWidth * 0.35} bind:max={totalShots} bind:value={$data.autoShootPos} image={'./field.png'}></ImageMap>
 
     <br>
     <button on:click={prev}> prev </button>
     <button on:click={next}> next </button>
 </main>
+
+<style>
+    .grow-button {
+        font-size: 3em;
+    }
+    .input-box {
+        width: 10%
+    }
+</style>
