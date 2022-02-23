@@ -5,12 +5,13 @@
 	import Page1 from './Page1.svelte';
 	import Page2 from './Page2.svelte';
 	import Page3 from './Page3.svelte';
+	import page4 from './Page4.svelte';
 	import { data } from './stores'
 
 	var start = 0;
 	var fin = 0;
-	const pages = [Page0, Page1, Page2, Page3];
-	let page = 0;
+	const pages = [Page0, Page1, Page2, Page3, page4];
+	let page = 4;
 	const params = new URLSearchParams(location.search);
 
 	$data.scout = params.get('scout')
@@ -33,19 +34,7 @@
 		}
 		if (event.detail.text == 'sbmt') {
 			console.log({data: $data, scout: $data.scout,teamNumber: $data.teamNum, eventId: $data.eventId})
-			fetch("http://10.105.153.149:5000/submit", {
-	  			method: "POST",
-  				headers: {
-					'Content-Type': "application/json",
-				},
-				body: JSON.stringify({data: $data, scout: $data.scout,teamNumber: $data.teamNum, eventId: $data.eventId})
-			})
-			.then(response => {
-				console.log(response);
-			})
-			.catch(err => {
-				console.error(err);
-			});
+
 		}
 	}
 </script>

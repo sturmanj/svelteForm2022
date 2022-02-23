@@ -18,9 +18,6 @@
         });
     }
 
-    function updateMax() {
-        totalShots = $data.teleUpperScore + $data.teleLowerScore
-    }
     function incUpp() {
         $data.teleUpperScore += 1
     }
@@ -35,6 +32,8 @@
         if ($data.teleLowerScore == 0) return
         $data.teleLowerScore -= 1
     }
+
+    $: totalShots = $data.autoUpperScore + $data.autoLowerScore
 </script>
 
 <main style="text-align: center;">
@@ -43,14 +42,14 @@
     <h2>Upper Score:</h2>
     <div style="display: inline;">
     <button class="grow-button" on:click={decUpp}>-1</button>
-    <input class="input-box" type=number bind:value={$data.teleUpperScore} on:input={updateMax} min=0 />
+    <input class="input-box" type=number bind:value={$data.teleUpperScore} min=0 />
     <button class="grow-button" on:click={incUpp}>+1</button>
     </div>
 
     <h2>Lower Score:</h2>
     <div style="display: inline;">
         <button class="grow-button" on:click={decLow}>-1</button>
-        <input class="input-box" type=number bind:value={$data.teleLowerScore} on:input={updateMax} min=0 />
+        <input class="input-box" type=number bind:value={$data.teleLowerScore} min=0 />
         <button class="grow-button" on:click={incLow}>+1</button>
         </div>
     <h2>Teleop Shoot Position:</h2>
@@ -60,6 +59,7 @@
     <button on:click={prev}> prev </button>
     <button on:click={next}> next </button>
 </main>
+
 <style>
     .grow-button {
         font-size: 3em;

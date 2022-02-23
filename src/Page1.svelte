@@ -16,14 +16,12 @@
             text: 'prev'
         });
     }
-    function updateMax() {
-        totalShots = $data.autoUpperScore + $data.autoLowerScore
-    }
     function incUpp() {
         $data.autoUpperScore += 1
     }
     function decUpp() {
         if ($data.autoUpperScore == 0) return
+        $data.autoUpperScore -= 1
     }
     function incLow() {
         $data.autoLowerScore += 1
@@ -32,6 +30,8 @@
         if ($data.autoLowerScore == 0) return
         $data.autoLowerScore -= 1
     }
+
+    $: totalShots = $data.autoUpperScore + $data.autoLowerScore
 </script>
 
 <main style="text-align: center;">
@@ -40,14 +40,14 @@
     <h2>Upper Score:</h2>
     <div style="display: inline;">
     <button class="grow-button" on:click={decUpp}>-1</button>
-    <input class="input-box" type=number bind:value={$data.autoUpperScore} on:input={updateMax} min=0 />
+    <input class="input-box" type=number bind:value={$data.autoUpperScore} min=0 />
     <button class="grow-button" on:click={incUpp}>+1</button>
     </div>
 
     <h2>Lower Score:</h2>
     <div style="display: inline;">
     <button class="grow-button" on:click={decLow}>-1</button>
-    <input class="input-box" type=number bind:value={$data.autoLowerScore} on:input={updateMax} min=0 />
+    <input class="input-box" type=number bind:value={$data.autoLowerScore} min=0 />
     <button class="grow-button" on:click={incLow}>+1</button>
     </div>
 

@@ -28,7 +28,7 @@
     }
     function sbmt() {
         dispatch('message', {
-            text: 'sbmt'
+            text: 'next'
         });
     }
 </script>
