@@ -1,5 +1,5 @@
 <script>
-    import ImageMap from './ImageMap.svelte'
+    import BetterImageMap from './BetterImageMap.svelte'
     import { createEventDispatcher } from 'svelte';
     import { data } from './stores'
 
@@ -62,8 +62,7 @@
     </label>
 
     <h2>Auto Shoot Position:</h2>
-    <ImageMap width={.8 * window.innerWidth} height={window.innerWidth * 0.35} bind:max={totalShots} bind:value={$data.autoShootPos} image={'./field.png'}></ImageMap>
-
+    <BetterImageMap scale={0.9} aspectRat={(600/266)} max={totalShots} bind:value={$data.autoShootPos} image={'./field.png'}></BetterImageMap>
     <br>
     <button on:click={prev}> prev </button>
     <button on:click={next}> next </button>
@@ -71,7 +70,7 @@
 
 <style>
     .grow-button {
-        font-size: 3em;
+        font-size: 4.5em;
     }
     .input-box {
         width: 10%

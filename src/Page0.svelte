@@ -1,5 +1,5 @@
 <script>
-    import ImageMap from './ImageMap.svelte'
+    import BetterImageMap from './BetterImageMap.svelte'
     import { createEventDispatcher } from 'svelte';
     import { data } from './stores'
 
@@ -15,7 +15,7 @@
 <main style="text-align: center;">
     <h1>Prematch</h1>
     <p>Auto Start Position:</p>
-    <ImageMap width={.8 * window.innerWidth} height={window.innerWidth * 0.35} max={1} bind:value={$data.autoStartPos} image={'./field.png'}></ImageMap>
+    <BetterImageMap scale={0.9} aspectRat={(600/266)} max={1} bind:value={$data.autoStartPos} image={'./field.png'}></BetterImageMap>
     <button on:click={next}> next </button>
 </main>
 

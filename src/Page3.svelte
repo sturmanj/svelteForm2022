@@ -26,7 +26,7 @@
             text: 'prev'
         });
     }
-    function sbmt() {
+    function next() {
         dispatch('message', {
             text: 'next'
         });
@@ -67,5 +67,5 @@
 
     <br>
     <button on:click={prev}> prev </button>
-    <button on:click={sbmt}> submit </button>
+    <button on:click={next}> submit </button>
 </main>

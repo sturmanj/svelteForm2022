@@ -11,7 +11,7 @@
 	var start = 0;
 	var fin = 0;
 	const pages = [Page0, Page1, Page2, Page3, page4];
-	let page = 4;
+	let page = 0;
 	const params = new URLSearchParams(location.search);
 
 	$data.scout = params.get('scout')
@@ -31,10 +31,6 @@
 			fin = document.body.offsetHeight;
 			page -= 1;
 			window.scrollTo(0,0)
-		}
-		if (event.detail.text == 'sbmt') {
-			console.log({data: $data, scout: $data.scout,teamNumber: $data.teamNum, eventId: $data.eventId})
-
 		}
 	}
 </script>
